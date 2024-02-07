@@ -66,6 +66,7 @@ export const detailsSlice = createSlice({
         state.currentCountry = action.payload[0];
       })
       .addCase(loadNeighborsByBorder.fulfilled, (state, action) => {
+        state.status = 'received';
         state.neighbors = action.payload.map((c) => c.name);
       })
       .addMatcher(
